@@ -1,0 +1,60 @@
+service: serverless-node
+frameworkVersion: '2 || 3'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: '20201221'
+
+functions:
+  createUser:
+    handler: src/createUser.createUser
+    events:
+      - httpApi:
+          path: /users
+          method: post
+  getUsers:
+    handler: src/getUsers.getUsers
+    events:
+      - httpApi:
+          path: /users
+          method: get
+  deleteUser:
+    handler: src/deleteUser.deleteUser
+    events:
+      - httpApi:
+          path: /users
+          method: delete
+  createOrder:
+    handler: src/createOrder.createOrder
+    events:
+      - httpApi:
+          path: /orders
+          method: post
+  getOrders:
+    handler: src/getOrders.getOrders
+    events:
+      - httpApi:
+          path: /orders
+          method: get
+  deleteOrder:
+    handler: src/deleteOrder.deleteOrder
+    events:
+      - httpApi:
+          path: /orders
+          method: delete
+  increaseBalance:
+    handler: src/increaseBalance.increaseBalance
+    events:
+      - httpApi:
+          path: /users
+          method: put
+  transferMoney:
+    handler: src/transferMoney.transferMoney
+    events:
+      - httpApi:
+          path: /transfer
+          method: post  
+
+plugins:
+  - serverless-offline
