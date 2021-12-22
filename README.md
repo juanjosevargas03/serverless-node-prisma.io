@@ -10,13 +10,57 @@ authorName: 'Serverless, inc.'
 authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
 -->
 
-# Serverless Framework Node HTTP API on AWS
+# Serverless Framework Node Prisma.io
 
-This template demonstrates how to make a simple HTTP API with Node.js running on AWS Lambda and API Gateway using the Serverless Framework.
-
-This template does not include any kind of persistence (database). For more advanced examples, check out the [serverless/examples repository](https://github.com/serverless/examples/) which includes Typescript, Mongo, DynamoDB and other examples.
 
 ## Usage
+
+to install the dependencies (must have node js installed)
+
+```
+$ npm i
+```
+
+to install serverless framework
+
+```
+$ npm install -g serverless
+```
+
+to run the project locally
+
+```
+$ serverless offline
+```
+
+endpoint to create users
+
+![image](https://user-images.githubusercontent.com/75379137/147017241-f595dd35-a114-4ca5-b2dd-b836152b507c.png)
+
+
+endpoint to create a purchase order for a user to be charged from their balance
+
+![image](https://user-images.githubusercontent.com/75379137/147017517-ecdeda78-60fd-4d2c-b92c-281736e64de3.png)
+
+
+endpoint to increase a user's balance
+
+![image](https://user-images.githubusercontent.com/75379137/147017807-646f252f-ec1d-467d-9c45-bd2611374eef.png)
+
+
+endpoint to transfer money between users
+
+![image](https://user-images.githubusercontent.com/75379137/147018099-9483401c-2505-4a01-a81a-f122ae692c30.png)
+
+endpoint to get users list
+
+![image](https://user-images.githubusercontent.com/75379137/147018321-15e21cfb-68b7-4431-a12f-8e73d2b0406e.png)
+
+endpoint to get the list of total orders
+
+![image](https://user-images.githubusercontent.com/75379137/147018527-ddc6735b-6059-4117-8619-ab622b816c52.png)
+
+
 
 ### Deployment
 
@@ -77,37 +121,3 @@ Which should result in response similar to the following (removed `input` conten
   }
 }
 ```
-
-### Local development
-
-You can invoke your function locally by using the following command:
-
-```bash
-serverless invoke local --function hello
-```
-
-Which should result in response similar to the following:
-
-```
-{
-  "statusCode": 200,
-  "body": "{\n  \"message\": \"Go Serverless v2.0! Your function executed successfully!\",\n  \"input\": \"\"\n}"
-}
-```
-
-
-Alternatively, it is also possible to emulate API Gateway and Lambda locally by using `serverless-offline` plugin. In order to do that, execute the following command:
-
-```bash
-serverless plugin install -n serverless-offline
-```
-
-It will add the `serverless-offline` plugin to `devDependencies` in `package.json` file as well as will add it to `plugins` in `serverless.yml`.
-
-After installation, you can start local emulation with:
-
-```
-serverless offline
-```
-
-To learn more about the capabilities of `serverless-offline`, please refer to its [GitHub repository](https://github.com/dherault/serverless-offline).
